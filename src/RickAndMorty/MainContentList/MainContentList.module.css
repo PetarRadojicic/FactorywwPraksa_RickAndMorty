@@ -1,0 +1,103 @@
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+.dividerText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    color: white;
+    font-size: 22px;
+}
+li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    color: white;
+    font-size: x-large;
+}
+/* .listItem{
+
+}
+.listItem:last-child {
+    
+  } */
+.logOutButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 90%;
+    font-size: x-large;
+    background-color: crimson;
+    color: white;
+    text-decoration: solid;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.favoriteButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 90%;
+    font-size: x-large;
+    background-color: rgb(199, 199, 65);
+    color: white;
+    text-decoration: solid;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.searchTitle{
+    color: white;
+    text-align: center;
+}
+.searchInput{
+    margin-bottom: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    width: 80%;
+}
+.favoritesContainer{
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.favPara{
+    text-align: center;
+    color: white;
+}
+.favImg{
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* For devices larger than a phone */
+@media (min-width: 768px) {
+.dividerText{
+    font-size: 35px;
+}
+.searchTitle{
+    font-size: 30px;
+}
+.searchInput{
+    padding: 15px;
+}
+li{
+    font-size: 35px;
+}
+}
