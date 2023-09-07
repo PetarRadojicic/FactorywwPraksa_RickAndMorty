@@ -1,3 +1,7 @@
+/* Each block of styles in css should be separated by a row  */
+
+/* 2 spaces indentation for css too */
+
 html,
 body,
 #root {
@@ -7,6 +11,7 @@ body,
     padding: 0;
     background-color: #333;
 }
+
 .dividerText{
     display: flex;
     align-items: center;
@@ -15,6 +20,7 @@ body,
     color: white;
     font-size: 22px;
 }
+
 li{
     display: flex;
     align-items: center;
@@ -26,9 +32,13 @@ li{
 /* .listItem{
 
 }
+
 .listItem:last-child {
     
   } */
+
+
+/* Should create a button component and change its style via props and some jsx interpolaton */
 .logOutButton{
     display: flex;
     align-items: center;
@@ -43,6 +53,9 @@ li{
     margin-left: 5%;
     margin-right: 5%;
 }
+
+
+
 .favoriteButton{
     display: flex;
     align-items: center;
@@ -57,10 +70,12 @@ li{
     margin-left: 5%;
     margin-right: 5%;
 }
+
 .searchTitle{
     color: white;
     text-align: center;
 }
+
 .searchInput{
     margin-bottom: 15px;
     margin-left: 10%;
@@ -68,6 +83,7 @@ li{
 
     width: 80%;
 }
+
 .favoritesContainer{
     width: 100%;
     flex-wrap: wrap;
@@ -75,10 +91,12 @@ li{
     align-items: center;
     justify-content: center;
 }
+
 .favPara{
     text-align: center;
     color: white;
 }
+
 .favImg{
     width: 100%;
     flex-wrap: wrap;
@@ -91,9 +109,11 @@ li{
 .dividerText{
     font-size: 35px;
 }
+
 .searchTitle{
     font-size: 30px;
 }
+
 .searchInput{
     padding: 15px;
 }

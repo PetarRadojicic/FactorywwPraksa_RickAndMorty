@@ -21,6 +21,8 @@ body,
     flex: 1;
 }
 
+/* its a good idea to store colors in variables, often we reuse them across all of the project */
+/* and we want to have one source of truth, so if someone changes design we can easily cover out tracks */
 .card {
     background-color: white;
     color: #333;

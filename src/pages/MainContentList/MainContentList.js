@@ -1,10 +1,14 @@
+// Wrong formatting, install eslint & prettier extensions then you can format code with your vsCode shortcuts
+
 import { React, useState, useEffect }   from 'react';
  import { Button, Input, List, Modal }  from 'antd'; 
  import style                           from './MainContentList.module.css' ;
  import axios                           from 'axios';
-  import Favorites                      from './Favorites/favorites';
-   function MainContentLIst() {
 
+export const MainContentLIst =() => {
+
+    // good logical grouping of state variables, nice
+    // One of the tasks tho was to implement useContext
     const [chars, setChars] = useState([]);
     const [showedChars, setShowedChars] = useState([]);
 
@@ -16,7 +20,10 @@ import { React, useState, useEffect }   from 'react';
     const [isFavoritesShow, setIsFavoritesShow] = useState(false);
 
 
+    // api calls usually go into modules then we only reference those functions calls inside components
+    // component should isolate all possible logic that is not coupled with GUI
     useEffect(() => {
+        // look into npm package "await-to-js" we largely use that instead of promise syntax
         axios
             .get("https://rickandmortyapi.com/api/character/")
             .then(fin => {
@@ -27,6 +34,7 @@ import { React, useState, useEffect }   from 'react';
             });
     }, []);
 
+    // Commented code, should delete
     // useEffect(() => {
 
     //     <Favorites sendArrayOfChars={favorites}/>
@@ -59,6 +67,8 @@ import { React, useState, useEffect }   from 'react';
         setIsModalOpen(false);
     };
 
+    // should be lower capital case, only functions that return JSX should be CapitalCase
+    // in other words, components
     const Search = (e) => {
         const searchTerm = e.target.value.toLowerCase();
 
@@ -92,13 +102,14 @@ import { React, useState, useEffect }   from 'react';
         console.log(e.target.parentNode.img)
     }
 
-
+    // formatting is set to indent 4 spaces , js/ts convention is 2 spaces
 
     return (
         !isFavoritesShow ? <>
             <h2 className={style.dividerText}>List Of Rick And Morty characters</h2>
             <h3 className={style.searchTitle}>Search Characters</h3>
             <Input className={style.searchInput} onChange={Search} />
+            {/* This "LIST" should go into components folder, then reused on favorites page */}
             <List
                 className={style.list}
                 dataSource={showedChars}

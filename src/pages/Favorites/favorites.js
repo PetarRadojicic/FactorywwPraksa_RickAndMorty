@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { List, Button } from 'antd';
 import style from './favorites.module.css';
 
-function Favorites(props) {
+export const Favorites = (props) => {
   const [favorites, setFavorites] = useState([]);
 
   console.log(favorites)
@@ -14,6 +14,7 @@ function Favorites(props) {
     <>
       <h2 className={style.dividerText}>List Of Rick And Morty characters</h2>
       <h3 className={style.searchTitle}>Favorites</h3>
+      {/* should be a reusable component between  */}
       <List
         className={style.list}
         dataSource={favorites}
@@ -31,4 +32,3 @@ function Favorites(props) {
   );
 }
 
-export default Favorites;
