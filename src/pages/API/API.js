@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import to from "await-to-js";
 import axios from "axios";
 
-const API = () => {
+const API = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const [error, response] = await to(
@@ -11,12 +11,14 @@ const API = () => {
       if (error) {
         alert("failed to pull");
       } else {
-        return response.data.results;
+        props.pullData(response.data.results);
       }
     };
 
     fetchData();
   }, []);
+
+  return;
 };
 
 export default API;

@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Button, Input, List, Modal } from "antd";
 import style from "./MainContentList.module.css";
+import API from "../API/API";
 import to from "await-to-js";
 import axios from "axios";
 
@@ -15,22 +16,9 @@ export const MainContentLIst = () => {
   const [favorites, setFavorites] = useState([]);
   const [isFavoritesShow, setIsFavoritesShow] = useState(false);
 
-  // api calls usually go into modules then we only reference those functions calls inside components
-  // component should isolate all possible logic that is not coupled with GUI
-  useEffect(() => {
-    const fetchData = async () => {
-      const [error, response] = await to(
-        axios.get("https://rickandmortyapi.com/api/character/")
-      );
-      if (error) {
-        alert("failed to pull");
-      } else {
-        setChars(response.data.results);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const pullData = (data) => {
+    setChars(data);
+  };
 
   useEffect(() => {
     setShowedChars(
@@ -100,6 +88,7 @@ export const MainContentLIst = () => {
 
   return !isFavoritesShow ? (
     <>
+      <API pullData={pullData}></API>;
       <h2 className={style.dividerText}>List Of Rick And Morty characters</h2>
       <h3 className={style.searchTitle}>Search Characters</h3>
       <Input className={style.searchInput} onChange={search} />
