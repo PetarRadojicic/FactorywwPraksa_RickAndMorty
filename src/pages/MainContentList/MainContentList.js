@@ -2,9 +2,7 @@ import { React, useState, useEffect } from "react";
 import { Button, Input, List, Modal } from "antd";
 import style from "./MainContentList.module.css";
 import API from "../API/API";
-import to from "await-to-js";
-import axios from "axios";
-
+import ShowList from "../List/List";
 export const MainContentLIst = () => {
   const [chars, setChars] = useState([]);
   const [showedChars, setShowedChars] = useState([]);
@@ -86,66 +84,44 @@ export const MainContentLIst = () => {
     setFavorites((prevFavorites) => [...prevFavorites, selectedCharacter]);
   };
 
+  const setFavoriteOnClick = () => {
+    setIsFavoritesShow(true);
+  };
+
   return !isFavoritesShow ? (
-    <>
-      <API pullData={pullData}></API>;
-      <h2 className={style.dividerText}>List Of Rick And Morty characters</h2>
-      <h3 className={style.searchTitle}>Search Characters</h3>
-      <Input className={style.searchInput} onChange={search} />
-      <List
-        className={style.list}
-        dataSource={showedChars}
-        renderItem={(item) => (
-          <List.Item className={style.listItem}>{item}</List.Item>
-        )}
-      />
-      <Modal
-        title={modalTitle}
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        {modalDesc}
-        <Button onClick={addToFavorites}>★</Button>
-      </Modal>
-      <Button
-        className={style.favoriteButton}
-        onClick={() => {
-          setIsFavoritesShow(true);
-        }}
-      >
-        See Favorites
-      </Button>
-      <Button className={style.logOutButton} href="/">
-        LogOut
-      </Button>
-    </>
+    <ShowList
+      pullData={pullData}
+      search={search}
+      showedChars={showedChars}
+      modalTitle={modalTitle}
+      isModalOpen={isModalOpen}
+      handleOk={handleOk}
+      modalDesc={modalDesc}
+      addToFavorites={addToFavorites}
+      setFavoriteOnClick={setFavoriteOnClick}
+      isMainList={true}
+      showModal={true}
+      dataSrc={showedChars}
+      goBack={false}
+      Title={"List Of Rick And Morty characters"}
+    ></ShowList>
   ) : (
-    <>
-      <h2 className={style.dividerText}>List Of Rick And Morty characters</h2>
-      <h3 className={style.searchTitle}>Favorites</h3>
-      <List
-        className={style.list}
-        dataSource={favorites}
-        renderItem={(item) => (
-          <List.Item className={style.listItem}>
-            <div className={style.favoritesContainer}>
-              <h3 className={style.favPara}>{item.name}</h3>
-              <div className={style.favImg}>{item.image}</div>
-            </div>
-          </List.Item>
-        )}
-      />
-      <Button
-        className={style.favoriteButton}
-        onClick={() => setIsFavoritesShow(false)}
-      >
-        Go Back
-      </Button>
-      <Button className={style.logOutButton} href="/">
-        LogOut
-      </Button>
-    </>
+    <ShowList
+      pullData={pullData}
+      search={search}
+      showedChars={showedChars}
+      modalTitle={modalTitle}
+      isModalOpen={isModalOpen}
+      handleOk={handleOk}
+      modalDesc={modalDesc}
+      addToFavorites={addToFavorites}
+      setFavoriteOnClick={setFavoriteOnClick}
+      isMainList={false}
+      showModal={false}
+      dataSrc={favorites}
+      goBack={true}
+      Title={"Favorites"}
+    ></ShowList>
   );
 };
 
