@@ -1,54 +1,52 @@
 html,
 body,
 #root {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .rowContainer {
-    height: 100vh;
-    justify-content: center;
-    background-color: lightgray;
+  height: 100vh;
+  justify-content: center;
+  background-color: lightgray;
 }
 
 .colContainer {
-    display: flex;
-    background-color: #333;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
+  display: flex;
+  background-color: #333;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
-/* its a good idea to store colors in variables, often we reuse them across all of the project */
-/* and we want to have one source of truth, so if someone changes design we can easily cover out tracks */
 .card {
-    background-color: white;
-    color: #333;
+  background-color: white;
+  color: #333;
 }
-.input{
-    margin-top: 15px;
-    border-color: #333;
+.input {
+  margin-top: 15px;
+  border-color: #333;
 }
-.button{
-    border-color: #333;
-    font-size:large;
-    margin: 15px;
-    margin-left: 40%;
+.button {
+  border-color: #333;
+  font-size: large;
+  margin: 15px;
+  margin-left: 40%;
 }
-.errorText{
-    color: red;
-    font-size: large;
+.errorText {
+  color: red;
+  font-size: large;
 }
 /* For devices larger than a phone */
 @media (min-width: 768px) {
-    .errorText{
-        color: red;
-        font-size: small;
-    }
-    .button{
-        border-color: #333;
-        font-size: small;
-    }
+  .errorText {
+    color: red;
+    font-size: small;
+  }
+  .button {
+    border-color: #333;
+    font-size: small;
+  }
 }

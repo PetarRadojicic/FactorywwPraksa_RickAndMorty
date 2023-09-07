@@ -1,7 +1,4 @@
 import { React, useState, useEffect } from "react";
-import { Button, Input, List, Modal } from "antd";
-import style from "./MainContentList.module.css";
-import API from "../API/API";
 import ShowList from "../List/List";
 export const MainContentLIst = () => {
   const [chars, setChars] = useState([]);
@@ -85,7 +82,7 @@ export const MainContentLIst = () => {
   };
 
   const setFavoriteOnClick = () => {
-    setIsFavoritesShow(true);
+    isFavoritesShow ? setIsFavoritesShow(false) : setIsFavoritesShow(true);
   };
 
   return !isFavoritesShow ? (
@@ -96,6 +93,7 @@ export const MainContentLIst = () => {
       modalTitle={modalTitle}
       isModalOpen={isModalOpen}
       handleOk={handleOk}
+      handleCancel={handleCancel}
       modalDesc={modalDesc}
       addToFavorites={addToFavorites}
       setFavoriteOnClick={setFavoriteOnClick}
