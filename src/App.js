@@ -1,18 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import RickAndMorty from './RickAndMorty/RickAndMorty';
-import MainContentLIst from './RickAndMorty/MainContentList/MainContentList';
-import Favorites         from './RickAndMorty/MainContentList/Favorites/favorites'
-
-import Login from './RickAndMorty/Login/Login'
+// node_module absolute imports go on top, then below we place our local imports
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import './App.css';
+
+
+import { Login } from './pages/Login/Login';
+import MainContentLIst from './pages/MainContentList/MainContentList';
+import { Favorites } from './pages/Favorites/favorites';
 
 function App() {
 
+  // Router i njegova logika ide u zasebnu komponentu, routes.tsx, koja moze da stoji unutar src foldera
   const router = createBrowserRouter([
     { path: '/',element: <Login/>},
     { path: '/MainContentLIst',element: <MainContentLIst/>},
-    { path: '/Favorites',element: <Favorites/>}
+    { path: '/Favorites',element: <Favorites/> }
   ])
   
   return (
